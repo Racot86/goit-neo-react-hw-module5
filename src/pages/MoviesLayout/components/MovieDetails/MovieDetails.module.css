@@ -1,0 +1,52 @@
+.movieCard{
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+    gap: 4px;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0.4);
+}
+.movieDetails{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    align-items: start;
+    row-gap: 16px;
+}
+h2{
+    font-weight: bold;
+    font-size: 28px;
+}
+h3{
+    font-weight: bold;
+    font-size: 24px;
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.score p:nth-child(1){
+    font-size: 24px;
+    color: darkgoldenrod;
+}
+.score p:nth-child(2){
+    font-size: 12px;
+    font-weight: lighter;
+}
+.overview{
+    text-align: start;
+}
+.genresWrapper{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    p{
+        line-height: 24px;
+        background-color: rgba(0,0,0,0.6);
+        padding: 8px;
+        border-radius: 4px;
+    }
+}
