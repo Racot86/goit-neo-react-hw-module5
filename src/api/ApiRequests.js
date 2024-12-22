@@ -38,3 +38,60 @@ export const useMovieDetails = (id) => {
         retry: 1,
     });
 };
+
+const fetchMovieCast = async (id) => {
+    try {
+        const response = await ApiClient.get(`/movie/${id}/credits`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching cast:', error);
+        throw error;
+    }
+};
+
+export const useMovieCast = (id) => {
+    return useQuery({
+        queryKey: ['movieCast', id],
+        queryFn: () => fetchMovieCast(id),
+        staleTime: 60 * 1000,
+        retry: 1,
+    });
+};
+
+const fetchMovieReviews = async (id) => {
+    try {
+        const response = await ApiClient.get(`/movie/${id}/reviews`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching reviews:', error);
+        throw error;
+    }
+};
+
+export const useMovieReviews = (id) => {
+    return useQuery({
+        queryKey: ['movieReviews', id],
+        queryFn: () => fetchMovieReviews(id),
+        staleTime: 60 * 1000,
+        retry: 1,
+    });
+};
+
+const searchMovies = async (query, page = 1) => {
+    const response = await ApiClient.get('/search/movie', {
+        params: {
+            query, // Search term
+            page,  // Page number for pagination
+        },
+    });
+    return response.data;
+};
+
+export const useSearchMovies = (query,page) => {
+    return useQuery({
+        queryKey: ['searchMovies', query,page],
+        queryFn: () => searchMovies(query,page),
+        staleTime: 60 * 1000,
+        retry: 1,
+    });
+};

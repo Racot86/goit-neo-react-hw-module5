@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-console.log(import.meta.env.VITE_TMDB_API_KEY)
 const apiClient = axios.create({
     baseURL: 'https://api.themoviedb.org/3', // TMDB API Base URL
 

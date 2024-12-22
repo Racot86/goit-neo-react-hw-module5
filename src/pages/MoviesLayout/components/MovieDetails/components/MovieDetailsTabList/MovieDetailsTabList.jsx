@@ -11,27 +11,25 @@ const MovieDetailsTabList = () => {
     const location = useLocation();
 
 
-
-
     return (
 
         <ul className={styles.tabList} >
             <li
                 className={clsx(styles.tabItem,getEndPoint(location.pathname)===id && styles.selectedTab)}
                 onClick={() => {
-                    navigate('/movies/'+id);
+                    navigate('/movies/'+id,{state:{from:location.state.from, query:location.state?.query, page:location.state?.page}});
                 }}
             >Info</li>
             <li
                 className={clsx(styles.tabItem,getEndPoint(location.pathname)==='cast' && styles.selectedTab)}
                 onClick={() => {
-                    navigate(`cast`);
+                    navigate(`cast`,{state:{from:location.state.from, query:location.state?.query, page:location.state?.page}});
                 }}
             >Cast</li>
             <li
                 className={clsx(styles.tabItem,getEndPoint(location.pathname)==='reviews' && styles.selectedTab)}
                 onClick={() => {
-                    navigate(`reviews`);
+                    navigate(`reviews`,{state:{from:location.state.from, query:location.state?.query, page:location.state?.page}});
                 }}
             >Reviews</li>
         </ul>

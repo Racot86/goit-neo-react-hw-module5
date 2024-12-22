@@ -1,8 +1,33 @@
 .movieItem{
-    max-width: 200px;
+    position: relative;
+    max-width: 185px;
     width: 100%;
+    min-height:280px;
+    height: 100%;
     background: #1c1c1c;
     padding: 8px;
     border: 1px solid #333333;
     border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        object-fit: contain;
+    }
+}
+.movieItem:hover{
+    scale: 1.1;
+    background: black;
+    z-index: 3;
+}
+.title{
+    position: relative;
+    z-index: 10;
+    padding: 4px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 4px;
+
 }
