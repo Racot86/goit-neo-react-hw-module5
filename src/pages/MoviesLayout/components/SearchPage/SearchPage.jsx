@@ -52,7 +52,7 @@ const SearchPage = () => {
             </div>
             {isLoading && <Loader />}
             {error && <ErrorMessage error={error.message}/>}
-            {!data?.results.length && query && <p style={{padding:'12px'}}>No results found</p>}
+            {!data?.results.length && query && !isLoading && <p style={{padding:'12px'}}>No results found</p>}
             {!!data?.results.length && (
                 <>
 
