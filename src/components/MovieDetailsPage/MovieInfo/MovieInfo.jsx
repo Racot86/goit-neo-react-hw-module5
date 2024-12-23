@@ -1,7 +1,7 @@
-import styles from "./MovieDetailsCardInfo.module.css"
+import styles from "./MovieInfo.module.css"
 import {useOutletContext} from "react-router-dom";
 
-const MovieDetailsCardInfo = () => {
+const MovieInfo = () => {
     const {movie} = useOutletContext();
     return (
         <div className={styles.movieInfo}>
@@ -20,4 +20,4 @@ const MovieDetailsCardInfo = () => {
         </div>
     )
 }
-export default MovieDetailsCardInfo
+export default MovieInfo

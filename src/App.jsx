@@ -1,43 +1,39 @@
 import 'modern-normalize'
 import './App.css'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import {lazy, Suspense, useState} from "react";
-import MainLayout from "./pages/MainLayout/MainLayout.jsx";
-import TrendingTodayPage from "./pages/TrendingTodayPage/TrendingTodayPage.jsx";
-import MoviesLayout from "./pages/MoviesLayout/MoviesLayout.jsx";
-import MovieDetails from "./pages/MoviesLayout/components/MovieDetails/MovieDetails.jsx";
-import MovieDetailsCardInfo
-    from "./pages/MoviesLayout/components/MovieDetails/components/MovieDetailsCardInfo/MovieDetailsCardInfo.jsx";
-import MovieDetailsCardCast
-    from "./pages/MoviesLayout/components/MovieDetails/components/MovieDetailsCardCast/MovieDetailsCardCast.jsx";
-import MovieDetailsCardReviews
-    from "./pages/MoviesLayout/components/MovieDetails/components/MovieDetailsCardReviews/MovieDetailsCardReviews.jsx";
-import SearchPage from "./pages/MoviesLayout/components/SearchPage/SearchPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import TrendingToday from "./components/HomePage/TrendingToday/TrendingToday.jsx";
+import MoviesPage from "./pages/MoviesPage.jsx";
+import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage.jsx";
+import MovieInfo
+    from "./components/MovieDetailsPage/MovieInfo/MovieInfo.jsx";
+import MovieCast
+    from "./components/MovieDetailsPage/MovieCast/MovieCast.jsx";
+import MovieReviews
+    from "./components/MovieDetailsPage/MovieReviews/MovieReviews.jsx";
+import SearchPage from "./components/MoivesPage/SearchPage/SearchPage.jsx";
 
 function App() {
 
-    const [selectedPage, setSelectedPage] = useState(1);
-    const TrendingTodayPage = lazy(() => import("./pages/TrendingTodayPage/TrendingTodayPage"));
+
+    const TrendingTodayPage = lazy(() => import("./components/HomePage/TrendingToday/TrendingToday.jsx"));
     return (
-        <Router>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path="/"
-                           element={<MainLayout selectedPage={selectedPage} handlePageChange={setSelectedPage}/>}>
+                    <Route path="/" element={<HomePage />}>
                         <Route index element={<TrendingTodayPage/>}/>
-                        <Route path="/movies" element={<MoviesLayout/>}>
+                        <Route path="/movies" element={<MoviesPage/>}>
                             <Route index element={<SearchPage />}/>
-                            <Route path=':id' element={<MovieDetails/>}>
-                                <Route index element={<MovieDetailsCardInfo/>}/>
-                                <Route path="cast" element={<MovieDetailsCardCast />} />
-                                <Route path="reviews" element={<MovieDetailsCardReviews />} />
+                            <Route path=':id' element={<MovieDetailsPage/>}>
+                                <Route index element={<MovieInfo/>}/>
+                                <Route path="cast" element={<MovieCast />} />
+                                <Route path="reviews" element={<MovieReviews />} />
                             </Route>
                         </Route>
                     </Route>
                 </Routes>
             </Suspense>
-
-        </Router>
 )
 }
 

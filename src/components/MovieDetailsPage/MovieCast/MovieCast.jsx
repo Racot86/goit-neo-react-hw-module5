@@ -1,12 +1,12 @@
-import {useMovieCast} from "../../../../../../api/ApiRequests.js";
+import {useMovieCast} from "../../../api/ApiRequests.js";
 import {useParams} from "react-router-dom";
-import ActorCard from "./components/ActorCard/ActorCard.jsx";
-import styles from "./MovieDetailsCardCast.module.css";
+import ActorCard from "../ActorCard/ActorCard.jsx";
+import styles from "./MovieCast.module.css";
 import {ThreeDots} from "react-loader-spinner";
-import Loader from "../../../../../../components/Loader/Loader.jsx";
-import ErrorMessage from "../../../../../../components/ErrorMessage/ErrorMessage.jsx";
+import Loader from "../../UI/Loader/Loader.jsx";
+import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
 
-const MovieDetailsCardCast = () =>{
+const MovieCast = () =>{
     const {id} = useParams();
     const {data, isLoading, error} = useMovieCast(id)
 
@@ -27,4 +27,4 @@ const MovieDetailsCardCast = () =>{
         </div>
     )
 }
-export default MovieDetailsCardCast
+export default MovieCast

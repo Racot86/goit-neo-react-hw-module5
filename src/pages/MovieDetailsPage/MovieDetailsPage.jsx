@@ -1,13 +1,13 @@
 import {Outlet, useLocation, useNavigate, useParams} from "react-router-dom";
-import {useMovieDetails} from "../../../../api/ApiRequests.js";
-import {BACKDROP_URL, DETAIL_URL} from "../../../../constants/constants.js";
-import MovieDetailsTabList from "./components/MovieDetailsTabList/MovieDetailsTabList.jsx";
-import styles from "./MovieDetails.module.css";
+import {useMovieDetails} from "../../api/ApiRequests.js";
+import {BACKDROP_URL, DETAIL_URL} from "../../constants/constants.js";
+import MovieTabList from "../../components/MovieDetailsPage/MovieTabList/MovieTabList.jsx";
+import styles from "./MovieDetailsPage.module.css";
 import { IoMdClose } from "react-icons/io";
-import Loader from "../../../../components/Loader/Loader.jsx";
-import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage.jsx";
+import Loader from "../../components/UI/Loader/Loader.jsx";
+import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
     const { id} = useParams();
     const location = useLocation();
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ const MovieDetails = () => {
                         <h2 style={{maxWidth:"95%"}}>{movie.title + "(" + movie.release_date.slice(0, 4) + ")"}</h2>
                         {movie.title !== movie.original_title && <p>{movie.original_title}</p>}
                         <Outlet context={{movie}} />
-                        <MovieDetailsTabList  />
+                        <MovieTabList  />
                     </div>
                 </div>
 
@@ -54,4 +54,4 @@ const MovieDetails = () => {
                 )
             }
 
-            export default MovieDetails;
+            export default MovieDetailsPage;

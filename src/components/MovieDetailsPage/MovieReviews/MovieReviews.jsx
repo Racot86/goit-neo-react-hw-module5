@@ -1,10 +1,10 @@
-import {useMovieReviews} from "../../../../../../api/ApiRequests.js";
+import {useMovieReviews} from "../../../api/ApiRequests.js";
 import {useParams} from "react-router-dom";
-import Review from "./components/Review/Review.jsx";
-import Loader from "../../../../../../components/Loader/Loader.jsx";
-import ErrorMessage from "../../../../../../components/ErrorMessage/ErrorMessage.jsx";
+import Review from "../Review/Review.jsx";
+import Loader from "../../UI/Loader/Loader.jsx";
+import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
 
-const MovieDetailsCardReviews = ()=>{
+const MovieReviews = ()=>{
     const {id} = useParams();
     const {data,isLoading,error} = useMovieReviews(id)
     return (
@@ -31,4 +31,4 @@ const MovieDetailsCardReviews = ()=>{
     )
 }
 
-export default MovieDetailsCardReviews;
+export default MovieReviews;

@@ -1,7 +1,7 @@
 import styles from './Header.module.css'
 import clsx from "clsx";
 import {useLocation, useNavigate} from "react-router-dom";
-import {getEndPoint} from "../../../../utilites/utilites.js";
+import {getEndPoint} from "../../../utilites/utilites.js";
 const Header = () => {
 
     const navigate = useNavigate();

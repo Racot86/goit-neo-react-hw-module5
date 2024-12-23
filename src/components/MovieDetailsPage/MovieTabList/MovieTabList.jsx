@@ -1,11 +1,11 @@
-import styles from './MovieDetailsTabList.module.css'
+import styles from './MovieTabList.module.css'
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-import {getEndPoint} from "../../../../../../utilites/utilites.js";
+import {getEndPoint} from "../../../utilites/utilites.js";
 
 
-const MovieDetailsTabList = () => {
+const MovieTabList = () => {
     const navigate = useNavigate();
     const {id} = useParams();
     const location = useLocation();
@@ -35,4 +35,4 @@ const MovieDetailsTabList = () => {
         </ul>
     )
 }
-export default MovieDetailsTabList
+export default MovieTabList

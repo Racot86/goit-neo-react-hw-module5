@@ -6,6 +6,7 @@
     background: #1c1c1c;
     padding-left: 16px;
     position: fixed;
+    z-index: 15;
 }
 .menu{
     display: flex;

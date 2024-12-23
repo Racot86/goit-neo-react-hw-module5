@@ -1,4 +1,4 @@
-import {ACTOR_URL} from "../../../../../../../../constants/constants.js";
+import {ACTOR_URL} from "../../../constants/constants.js";
 import styles from "./ActorCard.module.css";
 import { IoIosPerson } from "react-icons/io";
 const ActorCard = ({actor}) => {

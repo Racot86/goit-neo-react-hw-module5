@@ -1,4 +1,4 @@
-import {POSTER_URL} from "../../../../constants/constants.js";
+import {POSTER_URL} from "../../../constants/constants.js";
 import styles from './MovieListItem.module.css'
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import PropTypes from "prop-types";

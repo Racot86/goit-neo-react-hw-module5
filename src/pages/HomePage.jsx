@@ -1,8 +1,8 @@
-import Header from "./components/Header/Header.jsx";
+import Header from "../components/HomePage/Header/Header.jsx";
 import {Outlet} from "react-router-dom";
 
 
-const MainLayout = () => {
+const HomePage = () => {
     return (
         <>
             <Header />
@@ -12,5 +12,5 @@ const MainLayout = () => {
         </>
     )
 }
-export default MainLayout
+export default HomePage
 

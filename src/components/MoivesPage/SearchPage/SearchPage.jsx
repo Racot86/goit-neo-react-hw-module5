@@ -1,12 +1,12 @@
-import {useSearchMovies} from "../../../../api/ApiRequests.js";
-import MovieList from "../../../TrendingTodayPage/components/MovieList/MovieList.jsx";
-import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import {useSearchMovies} from "../../../api/ApiRequests.js";
+import MovieList from "../../UI/MovieList/MovieList.jsx";
+import SearchBar from "../SearchBar/SearchBar.jsx";
 import {useEffect, useState} from "react";
 import {useQueryClient} from "@tanstack/react-query";
 import {useLocation, useSearchParams} from "react-router-dom";
-import Pagination from "./components/Pagination/Pagination.jsx";
-import Loader from "../../../../components/Loader/Loader.jsx";
-import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage.jsx";
+import Pagination from "../Pagination/Pagination.jsx";
+import Loader from "../../UI/Loader/Loader.jsx";
+import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
 
 const SearchPage = () => {
     const location = useLocation();
