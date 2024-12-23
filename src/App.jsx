@@ -13,13 +13,14 @@ import MovieCast
 import MovieReviews
     from "./components/MovieDetailsPage/MovieReviews/MovieReviews.jsx";
 import SearchPage from "./components/MoivesPage/SearchPage/SearchPage.jsx";
+import Loader from "./components/UI/Loader/Loader.jsx";
 
 function App() {
 
 
     const TrendingTodayPage = lazy(() => import("./components/HomePage/TrendingToday/TrendingToday.jsx"));
     return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path="/" element={<HomePage />}>
                         <Route index element={<TrendingTodayPage/>}/>
