@@ -12,14 +12,17 @@
     display: flex;
     gap: 8px;
     align-items: center;
-    li{
-        font-weight: bold;
-        transition: 0.3s ease-in-out;
-        position: relative;
-        cursor: pointer;
-    }
-
 }
+.menuItem{
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    color: lightgray;
+    text-decoration: none;
+}
+
 .selected{
     color: darkcyan;
 }

@@ -1,11 +1,11 @@
-import Header from "../components/HomePage/Header/Header.jsx";
+import Navigation from "../components/HomePage/Navigation/Navigation.jsx";
 import {Outlet} from "react-router-dom";
 
 
 const HomePage = () => {
     return (
         <>
-            <Header />
+            <Navigation />
             <main>
                 <Outlet  />
             </main>
