@@ -16,7 +16,6 @@ const MovieDetailsPage = () => {
 
     const onClose = () =>{
         navigate(location.state);
-
     }
     return (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
