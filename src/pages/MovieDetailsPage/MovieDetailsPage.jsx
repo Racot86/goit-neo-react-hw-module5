@@ -15,7 +15,6 @@ const MovieDetailsPage = () => {
     const {data:movie,isLoading, error} = useMovieDetails(id);
 
     const onClose = () =>{
-        console.log('location', location.state);
         navigate(location.state);
 
     }
