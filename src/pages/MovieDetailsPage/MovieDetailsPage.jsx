@@ -6,7 +6,7 @@ import styles from "./MovieDetailsPage.module.css";
 import { IoMdClose } from "react-icons/io";
 import Loader from "../../components/UI/Loader/Loader.jsx";
 import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
-import {getEndPoint} from "../../utilites/utilites.js";
+
 
 const MovieDetailsPage = () => {
     const { id} = useParams();
