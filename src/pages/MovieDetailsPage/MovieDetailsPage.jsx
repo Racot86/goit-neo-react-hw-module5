@@ -6,12 +6,19 @@ import styles from "./MovieDetailsPage.module.css";
 import { IoMdClose } from "react-icons/io";
 import Loader from "../../components/UI/Loader/Loader.jsx";
 import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
+import {getEndPoint} from "../../utilites/utilites.js";
 
 const MovieDetailsPage = () => {
     const { id} = useParams();
     const location = useLocation();
     const navigate = useNavigate();
     const {data:movie,isLoading, error} = useMovieDetails(id);
+
+    const onClose = () =>{
+        console.log('location', location.state);
+        navigate(location.state);
+
+    }
     return (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
             {error && <ErrorMessage error={error.message}/>}
@@ -34,10 +41,7 @@ const MovieDetailsPage = () => {
                         />
                     }
                 <div className={styles.movieCard}>
-                    <IoMdClose className={styles.closeBtn} onClick={()=>navigate(
-                        location.state.from,
-                        {state:{query:location.state?.query, page:location.state?.page}})}
-                    />
+                    <IoMdClose className={styles.closeBtn} onClick={onClose} />
                     {movie.poster_path && <img src={DETAIL_URL + movie.poster_path}/>}
                     <div style={{display:"flex", flexDirection:"column"}}>
                         <h2 style={{maxWidth:"95%"}}>{movie.title + "(" + movie.release_date.slice(0, 4) + ")"}</h2>

@@ -15,14 +15,15 @@ const MovieCast = () =>{
             <h2 style={{margin:"8px"}}>Cast</h2>
             {error && <ErrorMessage error={error.message}/>}
             {isLoading && <Loader />}
-            {data &&
+            {data && data.cast.length ?
             <ul className={styles.actors}>
                 {
                     data.cast.map(actor => (
                         <ActorCard key={actor.id} actor={actor} />
                     ))
                 }
-            </ul>
+            </ul>:
+                <p>no data</p>
             }
         </div>
     )

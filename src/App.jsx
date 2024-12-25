@@ -14,6 +14,7 @@ import MovieReviews
     from "./components/MovieDetailsPage/MovieReviews/MovieReviews.jsx";
 import SearchPage from "./components/MoivesPage/SearchPage/SearchPage.jsx";
 import Loader from "./components/UI/Loader/Loader.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
                             </Route>
                         </Route>
                     </Route>
+                    <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             </Suspense>
 )

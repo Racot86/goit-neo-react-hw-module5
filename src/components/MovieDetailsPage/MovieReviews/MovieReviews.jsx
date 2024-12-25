@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import Review from "../Review/Review.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
+import styles from "./MovieReviews.module.css";
 
 const MovieReviews = ()=>{
     const {id} = useParams();
@@ -12,16 +13,7 @@ const MovieReviews = ()=>{
             <h3 style={{marginBottom:'16px'}}>Reviews</h3>
             {error && <ErrorMessage error={error.message}/>}
             {isLoading && <Loader />}
-            <ul style={{
-                display:"flex",
-                justifyContent:'center',
-                alignItems:"center",
-                flexDirection:'column',
-                maxHeight:"60vh",
-                overflow:"scroll",
-                padding:'10px',
-                rowGap:'24px',
-            }}>
+            <ul className={styles.reviewList}>
 
             {data && (data.results.length ? data.results.map(review => (
                 <Review key={review.id} review={review} />
