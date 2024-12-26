@@ -1,4 +1,4 @@
-.tabList {
+.tabList{
     display: flex;
     margin-top:auto;
     gap:8px;
@@ -8,6 +8,8 @@
     width: 100%;
 }
 .tabItem{
+    color: white;
+    text-decoration: none;
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }

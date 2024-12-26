@@ -1,15 +1,15 @@
-import styles from './SearchPage.module.css'
-import {useSearchMovies} from "../../../api/ApiRequests.js";
-import MovieList from "../../UI/MovieList/MovieList.jsx";
-import SearchBar from "../SearchBar/SearchBar.jsx";
+import { useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useQueryClient} from "@tanstack/react-query";
-import {useSearchParams} from "react-router-dom";
-import Pagination from "../Pagination/Pagination.jsx";
-import Loader from "../../UI/Loader/Loader.jsx";
-import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
+import {useSearchMovies} from "../../api/ApiRequests.js";
+import styles from "./MoviesPage.module.css";
+import SearchBar from "../../components/MoivesPage/SearchBar/SearchBar.jsx";
+import Pagination from "../../components/MoivesPage/Pagination/Pagination.jsx";
+import Loader from "../../components/UI/Loader/Loader.jsx";
+import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage.jsx";
+import MovieList from "../../components/UI/MovieList/MovieList.jsx";
 
-const SearchPage = () => {
+const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const [query, setQuery] = useState(()=>{
@@ -39,12 +39,12 @@ const SearchPage = () => {
     },[query]);
 
     useEffect(() => {
-            setSearchParams({query: query,page:page.toString()})
+        setSearchParams({query: query,page:page.toString()})
     },[page])
 
 
     return (
-        <div>
+        <div   style={{marginTop: '76px'}}>
             <div className={styles.searchBarWrapper}>
                 <SearchBar onLoad={query} query={setQuery}/>
                 {!!data?.results.length && <Pagination  page={page} setPage={setPage} totalPages={data.total_pages} />}
@@ -56,9 +56,10 @@ const SearchPage = () => {
                 <>
                     <MovieList movies={data.results} />
                 </>
-                )
+            )
             }
         </div>
     )
+
 }
-export default SearchPage
+export default MoviesPage

@@ -2,7 +2,6 @@ import {useMovieCast} from "../../../api/ApiRequests.js";
 import {useParams} from "react-router-dom";
 import ActorCard from "../ActorCard/ActorCard.jsx";
 import styles from "./MovieCast.module.css";
-import {ThreeDots} from "react-loader-spinner";
 import Loader from "../../UI/Loader/Loader.jsx";
 import ErrorMessage from "../../UI/ErrorMessage/ErrorMessage.jsx";
 

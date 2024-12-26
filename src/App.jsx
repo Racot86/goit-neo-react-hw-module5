@@ -1,43 +1,38 @@
 import 'modern-normalize'
 import './App.css'
 import {Route, Routes} from 'react-router-dom';
-import {lazy, Suspense, useState} from "react";
-import HomePage from "./pages/HomePage.jsx";
-import TrendingToday from "./components/HomePage/TrendingToday/TrendingToday.jsx";
-import MoviesPage from "./pages/MoviesPage.jsx";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage.jsx";
-import MovieInfo
-    from "./components/MovieDetailsPage/MovieInfo/MovieInfo.jsx";
-import MovieCast
-    from "./components/MovieDetailsPage/MovieCast/MovieCast.jsx";
-import MovieReviews
-    from "./components/MovieDetailsPage/MovieReviews/MovieReviews.jsx";
-import SearchPage from "./components/MoivesPage/SearchPage/SearchPage.jsx";
+import {lazy, Suspense} from "react";
 import Loader from "./components/UI/Loader/Loader.jsx";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import Navigation from "./components/UI/Navigation/Navigation.jsx";
 
 function App() {
 
 
-    const TrendingTodayPage = lazy(() => import("./components/HomePage/TrendingToday/TrendingToday.jsx"));
+    const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
+    const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage.jsx"));
+    const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage/MovieDetailsPage.jsx"));
+    const MovieInfo = lazy(() => import("./components/MovieDetailsPage/MovieInfo/MovieInfo.jsx"));
+    const MovieCast = lazy(() => import("./components/MovieDetailsPage/MovieCast/MovieCast.jsx"));
+    const MovieReviews = lazy(() => import("./components/MovieDetailsPage/MovieReviews/MovieReviews.jsx"));
+    const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
+
     return (
-            <Suspense fallback={<Loader />}>
+        <>
+            <Navigation/>
+            <Suspense fallback={<Loader/>}>
                 <Routes>
-                    <Route path="/" element={<HomePage />}>
-                        <Route index element={<TrendingTodayPage/>}/>
-                        <Route path="/movies" element={<MoviesPage/>}>
-                            <Route index element={<SearchPage />}/>
-                            <Route path=':id' element={<MovieDetailsPage/>}>
-                                <Route index element={<MovieInfo/>}/>
-                                <Route path="cast" element={<MovieCast />} />
-                                <Route path="reviews" element={<MovieReviews />} />
-                            </Route>
-                        </Route>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/movies" element={<MoviesPage/>}/>
+                    <Route path='/movies/:id' element={<MovieDetailsPage/>}>
+                        <Route index element={<MovieInfo/>}/>
+                        <Route path="cast" element={<MovieCast/>}/>
+                        <Route path="reviews" element={<MovieReviews/>}/>
                     </Route>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             </Suspense>
-)
+        </>
+    )
 }
 
 export default App

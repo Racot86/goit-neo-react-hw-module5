@@ -31,3 +31,15 @@
     border-radius: 4px;
 
 }
+.link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    width: 100%;
+    min-height:272px;
+    height: 100%;
+    p{
+        max-height: 28px;
+        width: 100%;
+    }
+}

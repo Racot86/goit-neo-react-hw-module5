@@ -18,7 +18,7 @@ const MovieDetailsPage = () => {
         navigate(location.state);
     }
     return (
-        <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: '76px'}}>
             {error && <ErrorMessage error={error.message}/>}
             {isLoading && <Loader />}
             {movie &&
